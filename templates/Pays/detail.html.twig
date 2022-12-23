@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}pays dtail
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<h1>{{pays.name}}</h1>
+		<div class="row">
+			<img src={{pays.drapeau}} alt={{pays.name}}>
+		</div>
+        <div class="col-3">
+				<img src="{{ asset('img/' ~ pays.drapeau) }}" class="img-fluid" alt="">
+			</div>
+	</div>
+{% endblock %}

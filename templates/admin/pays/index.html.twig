@@ -1,0 +1,36 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	<div class="container">
+		<h2>Pays</h2>
+		<p>
+			<a href="{{ url('admin.pays.form.add') }}" class="btn btn-info">Add</a>
+		</p>
+
+		{# affichage des messages flash #}
+		{% for notice in app.flashes('notice') %}
+			<p class="alert alert-success">{{ notice }}</p>
+		{% endfor %}
+
+		<table class="table table-striped">
+			<tr>
+				<th>Name</th>
+				<th></th>
+			</tr>
+			{% for pays in entities %}
+				<tr>
+					<td>{{ pays.name | title }}</td>
+					<td>
+						<a href="{{ url('admin.pays.form.edit', { id: pays.id }) }}" class="btn btn-warning">Edit</a>
+						<a href="{{ url('admin.pays.remove', { id: pays.id }) }}" class="btn btn-danger">Remove</a>
+
+					</td>
+				</tr>
+			{% endfor %}
+		</table>
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+	<script src="{{ asset('js/admin.js') }}" defer></script>
+{% endblock %}

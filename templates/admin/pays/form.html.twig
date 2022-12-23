@@ -1,0 +1,21 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	<div class="container">
+		{{ form_start(form, { attr: { novalidate: 'novalidate' } }) }}
+		<p>
+			{{ form_label(form.name, 'name :') }}
+			{{ form_widget(form.name) }}
+			{{ form_errors(form.name) }}
+		</p>
+		<p>
+			{{ form_label(form.drapeau, 'Drapeau :') }}
+			{{ form_widget(form.drapeau) }}
+			{{ form_errors(form.drapeau) }}
+		</p>
+		<p>
+			<input type="submit" class="btn btn-primary">
+		</p>
+		{{ form_end(form) }}
+	</div>
+{% endblock %}

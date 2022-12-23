@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}playerslist{% endblock %}
+{% block body %}
+<link rel="stylesheet" href="{{ asset('css/players.css') }}">
+
+<div class="container">
+    <div class="row">
+        {% for player in players %}
+        <div class="col-3">
+            <div class="card" >
+                <div class='image'>
+                <img src={{player.portrait}} class="card-img-top" alt="">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{player.firstname ~ ' ' ~ player.lastname }}</h5>
+                    <p class="card-text">{{player.birthday | date("m/d/Y")}}</p>
+                    <a href="{{url('player.detail', {'id': player.id})}}" class="btn btn-primary">detail</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
